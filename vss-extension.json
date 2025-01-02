@@ -1,12 +1,15 @@
 {
 	"manifestVersion": 1,
-	"id": "neronotte_first_extension",
-	"name": "My First Extension",
-	"publisher": "neronotte",
-	"version": "0.0.3",
-	"description": "<description>",
+	"id": "build-release-hub-group",
+	"name": "Build Release Extension",
+	"publisher": "ADOHubExtension",
+	"version": "0.0.1",
+	"description": "Build Release Extension",
 	"public": false,
-	"categories": ["Azure Repos"],
+	"categories": [
+	"Azure Boards",
+	"Azure Pipelines"
+	],
 	"targets": [
 		{
 			"id": "Microsoft.VisualStudio.Services"
@@ -26,7 +29,39 @@
 				"name": "My first extension",
 				"uri": "dist/home/home.html"
 			}
-		}
+		},
+        {
+            "id": "custom-build-release-hub-group",
+            "type": "ms.vss-web.hub",
+            "targets": [
+                "ms.vss-build-web.build-release-hub-group"
+            ],
+            "properties": {
+                "name": "Custom Build And Release Hub",
+                "uri": "dist/build-release-hub-group/build-release-hub-group.html",
+                "icon": {
+                    "light": "static/app_folder.png",
+                    "dark": "static/app_folder.png"
+                }
+            }
+        },
+        {
+            "id": "sample-widget",
+            "type": "ms.vss-dashboards-web.widget",
+            "targets": [
+                "ms.vss-dashboards-web.widget-catalog", 
+                ".sample-widget.config"
+            ],
+            "properties": {
+                "name": "Sample widget",
+                "description": "Shows current pipeline status",
+                "catalogIconUrl": "logo.png",
+                "uri": "dist/widget-catalog/widget-catalog.html",
+                "isNameConfigurable": true,
+                "supportedSizes": [{ "rowSpan": 1, "columnSpan": 1 }],
+              
+            }
+        }		
 	],
 	"files": [
 		{
