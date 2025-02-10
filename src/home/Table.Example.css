@@ -1,0 +1,12 @@
+.table-example {
+    min-width: 500px;
+}
+
+.bolt-table-card {
+    width: 100%;
+}
+
+.wrap-text {
+    white-space: break-spaces;
+    word-break: break-all;
+}
