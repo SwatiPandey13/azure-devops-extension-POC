@@ -1,15 +1,16 @@
 {
 	"compilerOptions": {
-		"target": "es5",
+		"target": "es2022",
 		"lib": ["es5", "es6", "dom"],
 		"jsx": "react",
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true,
-		"module": "commonjs",
+		"module": "ES2022",
 		"moduleResolution": "node",
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
-		"strict": true,
+		"strict": false,
+		"strictFunctionTypes": false,
 		"noImplicitAny": true,
 		"noImplicitThis": true,
 		"skipLibCheck": true
