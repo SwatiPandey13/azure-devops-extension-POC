@@ -16,13 +16,13 @@
 		"azure-devops-extension-api": "^4.237.0",
 		"azure-devops-extension-sdk": "^4.0.2",
 		"azure-devops-ui": "^2.238.0",
-		"react": "^16.14.0",
-		"react-dom": "^16.14.0"
+		"react": "~16.13.1",
+    	"react-dom": "~16.13.1"
 	},
 	"devDependencies": {
 		"@types/node": "^20.12.12",
-		"@types/react": "^18.3.3",
-		"@types/react-dom": "^18.3.0",
+		"@types/react": "~16.8.2",
+    	"@types/react-dom": "~16.8.0",
 		"base64-inline-loader": "^2.0.1",
 		"copy-webpack-plugin": "^12.0.2",
 		"css-loader": "^7.1.2",
