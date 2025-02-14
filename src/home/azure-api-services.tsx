@@ -11,9 +11,9 @@ We use access token & azure api service only for local development, for prod we 
 */
 
 const BASE_URL="https://dev.azure.com";
-const AZURE_ORG = "Voya-Projects";
-const AZURE_PROJECT = "DevOps_UX_POC";
-const PAT = "PsoUSqlKnxL050yKVfnMX4l6XPPTYfoC5vN8qMoT1LEflXzbA9YDJQQJ99BAACAAAAAdXslUAAASAZDOJs4P";
+const AZURE_ORG = "MSSAP";
+const AZURE_PROJECT = "SAPHANA-AzureDevOps";
+const PAT = "token";
 
 const getHeaders = () => ({
         Authorization: `Basic ${btoa(":"+PAT)}`,
