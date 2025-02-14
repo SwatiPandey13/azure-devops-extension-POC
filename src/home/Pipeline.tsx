@@ -4,9 +4,9 @@ import {
     IPipelineItem,
     getAllPipelineItems,
     ReleaseType,
-    ReleaseTypeText,
-    pipelineItems
+    ReleaseTypeText
 } from "../TableData";
+import "./Table.Example.css";
 
 import { Card } from "azure-devops-ui/Card";
 import { Icon, IIconProps } from "azure-devops-ui/Icon";
@@ -32,7 +32,7 @@ import { Observer } from "azure-devops-ui/Observer";
 
 //let pipelineItemsData: any[] = []; 
 console.log("loading msg==");
-const pipelinesData: IPipelineItem[] = pipelineItems//await getAllPipelineItems();
+const pipelinesData: IPipelineItem[] = await getAllPipelineItems();
 console.log("loading after api call done:");
 console.log("pipelineItems from api==", pipelinesData);
 
@@ -154,10 +154,14 @@ function renderNameColumn(
             />
 
             <div className="flex-row wrap-text">
-                {/*<Tooltip overflowOnly={true}>
-                    <span>{tableItem.name}</span>
-                </Tooltip>*/}
+                <Link 
+                className="fontSizeM font-size-m bolt-table-link bolt-table-inline-link no-underline"
+                excludeTabStop
+                href={tableItem.buildUrl}
+                > 
                 {tableItem.name}
+                </Link>
+                
             </div>
         </SimpleTableCell>
     );
@@ -169,7 +173,7 @@ function renderLastRunColumn(
     tableColumn: ITableColumn<IPipelineItem>,
     tableItem: IPipelineItem
 ): JSX.Element {
-    const { prName, prId, releaseType, branchName } = tableItem.lastRunData;
+    const { prName, prId, releaseType, branchName, prLink, branchUrl } = tableItem.lastRunData;
     const text = "#" + prId + " \u00b7 " + prName;
     const releaseTypeText = ReleaseTypeText({ releaseType: releaseType });
     return (
@@ -180,31 +184,30 @@ function renderLastRunColumn(
             tableColumn={tableColumn}
             line1={
                 <span className="flex-row wrap-text">
-                    {/*<Tooltip text={text} overflowOnly>
+                    <Tooltip text={text} overflowOnly>
                         <Link
-                            className="fontSizeM font-size-m bolt-table-link bolt-table-inline-link"
+                            className="fontSizeM font-size-m bolt-table-link bolt-table-inline-link no-underline"
                             excludeTabStop
-                            href="#pr"
+                            href={prLink}
                         >
                             {text}
                         </Link>
-                    </Tooltip>*/}
-                    {text}
+                    </Tooltip>
                 </span>
             }
             line2={
                 <span className="fontSize font-size secondary-text flex-row flex-center">
                     {ReleaseTypeIcon({ releaseType: releaseType })}
-                    {/*<Tooltip text={releaseTypeText} overflowOnly>
+                     <Tooltip text={releaseTypeText} overflowOnly>
                         <span key="release-type-text" style={{flexShrink: 10}}>
                             {releaseTypeText}
                         </span>
                     </Tooltip>
                     <Tooltip text={branchName} overflowOnly>
                         <Link
-                            className="monospaced-text bolt-table-link bolt-table-inline-link"
+                            className="monospaced-text bolt-table-link bolt-table-inline-link no-underline"
                             excludeTabStop
-                            href="#branch"
+                            href={branchUrl}
                         >
                             {Icon({
                                 className: "icon-margin",
@@ -213,8 +216,8 @@ function renderLastRunColumn(
                             })}
                             {branchName}
                         </Link>
-                    </Tooltip>*/}
-                    <span key="release-type-text" style={{flexShrink: 10}}>
+                    </Tooltip>
+                    {/*<span key="release-type-text" style={{flexShrink: 10}}>
                             {releaseTypeText}
                         </span>
                         <span className="monospaced-text bolt-table-link bolt-table-inline-link">
@@ -224,7 +227,7 @@ function renderLastRunColumn(
                                 key: "branch-name",
                             })}
                             {branchName}
-                        </span>
+                        </span>*/}
                 </span>
             }
         />
