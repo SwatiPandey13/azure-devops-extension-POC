@@ -16,7 +16,7 @@ import { BuildDefinition, BuildRestClient } from "azure-devops-extension-api/Bui
 
 export class HomePage extends React.Component<{}, {}> {
     public componentDidMount() {
-         SDK.init();
+             SDK.init();
         /*SDK.register("sample-build-menu", () => {
             return {
                 execute: async (context: BuildDefinition) => {
